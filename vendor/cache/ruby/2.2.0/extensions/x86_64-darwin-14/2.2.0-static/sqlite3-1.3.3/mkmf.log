@@ -1,0 +1,414 @@
+find_header: checking for sqlite3.h... -------------------- yes
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -E -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+find_library: checking for sqlite3_libversion_number() in -lsqlite3... -------------------- yes
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector     -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_libversion_number'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector     -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_libversion_number' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_libversion_number(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_libversion_number(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_proc_arity()... -------------------- yes
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_proc_arity; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_initialize()... -------------------- yes
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_initialize'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_initialize' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_initialize(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_initialize(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_next_stmt()... -------------------- yes
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_next_stmt'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_next_stmt; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_next_stmt; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_next_stmt' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_next_stmt(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_next_stmt(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_backup_init()... -------------------- yes
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_backup_init'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_backup_init' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_backup_init(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_backup_init(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_column_database_name()... -------------------- no
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_column_database_name'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_column_database_name' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_column_database_name(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+Undefined symbols for architecture x86_64:
+  "_sqlite3_column_database_name", referenced from:
+      _t in conftest-b9e043.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_column_database_name(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_enable_load_extension()... -------------------- no
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_enable_load_extension'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_enable_load_extension' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_enable_load_extension(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+Undefined symbols for architecture x86_64:
+  "_sqlite3_enable_load_extension", referenced from:
+      _t in conftest-71170b.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_enable_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_load_extension()... -------------------- no
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'sqlite3_load_extension'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/x86_64-darwin14 -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0/ruby/backward -I/Users/Suchi/.rbenv/versions/2.2.1/include/ruby-2.2.0 -I. -I/usr/local/include -I/opt/local/include -I/sw/local/include -I/usr/include -I/Users/Suchi/.rbenv/versions/2.2.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L/usr/local/lib -L/opt/local/lib -L/sw/local/lib -L/usr/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib -L. -L/Users/Suchi/.rbenv/versions/2.2.1/lib  -fstack-protector    -lsqlite3  -lruby-static -framework CoreFoundation -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'sqlite3_load_extension' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { sqlite3_load_extension(); return 0; }
+              ^
+1 warning generated.
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/sw/local/lib'
+Undefined symbols for architecture x86_64:
+  "_sqlite3_load_extension", referenced from:
+      _t in conftest-812adc.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { sqlite3_load_extension(); return 0; }
+/* end */
+
+--------------------
+

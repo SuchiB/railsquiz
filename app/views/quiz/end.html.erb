@@ -1,0 +1,21 @@
+<!--
+# TAFE, 29 April, 2015.
+# Ruby Source File
+# Activity::  Final Project: Quiz App
+# Author::   041504258 Suruchi Bapat
+-->
+
+<h1>Quiz Results</h1>
+<p id="question">You answered correctly <%= @correct %> out of <%= @total %> questions.</p>
+
+<p id="score"><%= @score %>%</p>
+
+<%= form_tag({:controller => "quiz", :action => "index"}, :method => "get") do %>
+  <div class="center">
+	 <%= submit_tag("Take another quiz", :class => "submit") %>
+  </div>
+<% end %>
+
+<% content_for(:title) do %>
+  Quiz Results
+<% end %>

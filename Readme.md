@@ -1,7 +1,7 @@
 # Rails quiz app
 
-Created by [Juliana Peña](http://julianapena.com)
-Free under [Ms-PL](http://www.opensource.org/licenses/MS-PL)
+Created by Suruchi Bapat
+
 
 ## Usage
 

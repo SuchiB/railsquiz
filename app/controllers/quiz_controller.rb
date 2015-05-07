@@ -15,7 +15,7 @@ class QuizController < ApplicationController
 	 session[:total]   = total
 	 session[:current] = 0
 	 session[:correct] = 0
-
+   logger.info 'Loding Questions...'
 	 redirect_to :action => "question"
   end
 

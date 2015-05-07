@@ -4,6 +4,10 @@
 # Author::   041504258 Suruchi Bapat
 
 Quizapp::Application.routes.draw do
+  get "static_pages/home"
+
+  get "static_pages/help"
+
   resources :questions
 
   get "quiz/index"

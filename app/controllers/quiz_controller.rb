@@ -33,6 +33,24 @@ class QuizController < ApplicationController
 	 
 	 session[:question] = @question
 	 session[:choices] = @choices
+	 
+	 @current = session[:current]
+	 @total   = session[:total]
+	 
+	 choiceid = params[:choice]
+	 
+	 @question = session[:question]
+	 @choices  = session[:choices]
+	 
+	 @choice = choiceid ? Choice.find(choiceid) : nil
+	 if @choice and @choice.correct
+		@correct = true
+		session[:correct] += 1
+	 else
+		@correct = false
+	 end
+	 
+	 session[:current] += 1
 
 
   end

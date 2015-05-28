@@ -4,6 +4,7 @@ class CreateChoices < ActiveRecord::Migration
       t.string :text
       t.boolean :correct
       t.integer :question_id
+      
 
       t.timestamps
     end

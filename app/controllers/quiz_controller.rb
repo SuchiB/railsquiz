@@ -8,14 +8,15 @@ class QuizController < ApplicationController
   end
   
   def start
-	 total = params[:number].to_i
+	 #total = params[:number].to_i
+	 total = 2
 	 all = Question.find(:all).map {|x| x.id}
 	 session[:questions] = all.sort_by{rand}[0..(total-1)]
 	 
 	 session[:total]   = total
 	 session[:current] = 0
 	 session[:correct] = 0
-
+	 
 	 redirect_to :action => "question"
   end
 
@@ -34,25 +35,10 @@ class QuizController < ApplicationController
 	 session[:question] = @question
 	 session[:choices] = @choices
 	 
-	 @current = session[:current]
-	 @total   = session[:total]
 	 
-	 choiceid = params[:choice]
 	 
-	 @question = session[:question]
-	 @choices  = session[:choices]
-	 
-	 @choice = choiceid ? Choice.find(choiceid) : nil
-	 if @choice and @choice.correct
-		@correct = true
-		session[:correct] += 1
-	 else
-		@correct = false
-	 end
-	 
-	 session[:current] += 1
 
-
+	 
   end
 
   def answer
@@ -73,6 +59,7 @@ class QuizController < ApplicationController
 	 end
 	 
 	 session[:current] += 1
+	 redirect_to :action => "question"
   end
 
   def end

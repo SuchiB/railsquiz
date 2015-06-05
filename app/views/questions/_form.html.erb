@@ -20,7 +20,12 @@
 
   <div class="field">
     <%= f.label :text %><br />
-    <%= f.text_area :text, :size => "50x3" %>
+    <%= f.text_area :text, :size => "50x3" %><br /><br />
+    
+    <%= f.label :question_type %><br />
+    <%= f.select :question_type, [['True/False','True/False'],['Multiple Choice','Multiple Choice'],
+                                ['Multiple Answer','Multiple Answer'],['Short Answer','Short Answer'],
+                                ['Long Answer','Long Answer']] %><br /><br />
   </div>
   
   <div class="actions">

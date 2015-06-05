@@ -5,18 +5,39 @@
 # Author::   041504258 Suruchi Bapat
 -->
 
-<h1>Start Quiz</h1>
-
-<%= form_tag({:controller => "quiz",
-				  :action => "start"}) do %>
-  <!--<p><%= label_tag(:number, "How many questions do you want in the quiz?", :id => "question") %></p>-->
-  <!--<p class="center"><%= select_tag(:number, options_for_select((1..10).map {|x| [x, x]}), :id => "count") %> <br /></p>-->
+<html>
   
-  <div class="center">
-	 <%= submit_tag "Start !", :class => "submit"%>
-  </div>
-<% end %>
+  <head>
+    <% content_for(:title) do %>
+          Start Quiz
+    <% end %>
+  </head>
+  
+  <body>
+      <div class="header">
+          <h1>Start Quiz</h1>
+      </div>
 
-<% content_for(:title) do %>
-  Start Quiz
-<% end %>
+      <section>
+          <h1>Quiz Details: </h1>
+          
+          <p id="coursename"><%= "Course Name: " %> <%= "ICA50711 Diploma of Software Development" %></p>
+          <p id="clustername"><%= "Cluster Name: " %> <%= "RD - Rapid Application Development Cluster" %></p>
+          <p id="quizid"><%= "Quiz ID: " %> <%= "RD01" %></p>
+          <p id="quiztitle"><%= "Quiz Title: " %> <%= "Ruby on Rails Quiz" %></p>
+          <p id="questioncount"><%= "Number of questions: " %> <%= "20" %></p>
+          <p id="quizdate"><%= "Date: " %> <%= Time.now.strftime("%d/%m/%Y") %></p>
+          
+          
+      </section>
+
+      <%= form_tag({:controller => "quiz", :action => "start"}) do %>
+      <div class="center">
+	         <%= submit_tag "Start !", :class => "submit"%>
+      </div>
+      <% end %>
+
+
+
+</body>
+</html>

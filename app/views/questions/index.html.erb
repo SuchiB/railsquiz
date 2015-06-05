@@ -14,6 +14,7 @@
   <tr>
     <th>Text</th>
     <th>Choices</th>
+    <th>Type</th>
     <th></th>
     <th></th>
     <th></th>
@@ -32,6 +33,7 @@
         <% end %>
       </ul>
     </td>
+    <td><%= question.question_type %></td>
     <td><%= link_to 'Show', question %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>
     <td><%= link_to 'Delete', question, :confirm => 'Are you sure?', :method => :delete %></td>

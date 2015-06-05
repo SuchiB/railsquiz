@@ -4,6 +4,7 @@
 # Author::  041504258  Suruchi Bapat
 
 class QuizController < ApplicationController
+  
   def index
   end
   
@@ -16,7 +17,7 @@ class QuizController < ApplicationController
 	 session[:total]   = total
 	 session[:current] = 0
 	 session[:correct] = 0
-	 
+	
 	 redirect_to :action => "question"
   end
 
@@ -34,11 +35,6 @@ class QuizController < ApplicationController
 	 
 	 session[:question] = @question
 	 session[:choices] = @choices
-	 
-	 
-	 
-
-	 
   end
 
   def answer
@@ -54,10 +50,12 @@ class QuizController < ApplicationController
 	 if @choice and @choice.correct
 		@correct = true
 		session[:correct] += 1
+		
 	 else
 		@correct = false
 	 end
-	 
+	 #check the selected option
+	 @question.answers = @choice.text
 	 session[:current] += 1
 	 redirect_to :action => "question"
   end
@@ -65,6 +63,7 @@ class QuizController < ApplicationController
   def end
 	 @correct = session[:correct]
 	 @total   = session[:total]
+	 
 	 
 	 @score = @correct * 100 / @total
   end

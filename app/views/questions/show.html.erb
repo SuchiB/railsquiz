@@ -29,7 +29,8 @@
   <% end %>
 </ul>
 
-<h5>New Choice</h5>
+
+<h4>New Choice</h4>
 <%= form_tag({:controller => "choices", :action => "create"}) do %>
   <%= hidden_field_tag :question, @question.id %>
   

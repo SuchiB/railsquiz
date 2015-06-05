@@ -3,8 +3,39 @@
 # Ruby Source File
 # Activity::  Final Project: Quiz App
 # Author::   041504258 Suruchi Bapat
+
+#<iframe src="http://free.timeanddate.com/clock/i4pde0av/n196/tlau/fn6/fs24/tct/pct/ftb/bo2/th2" frameborder="0" width="207" height="32" allowTransparency="true"></iframe>
+
 -->
 
+<!--<h2>Start Time <%= Time.zone.now.strftime("%T") %></h2> -->
+
+<!-- Site Ref: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock -->
+<script>
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    var ampm = h >= 12 ? ' PM' : ' AM';
+    h = h % 12;
+    h = h ? h : 12; // the hour '0' should be '12'
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('time').innerHTML = h+":"+m+":"+s+ampm;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+<body onload="startTime()">
+
+<b><p STYLE="display: inline; border: solid  2px"id="time">  <%= %></p></b>
 <h1>Question <%= @current + 1 %> of <%= @total %></h1>
 <p id="question"><%= @question.text %></p>
 
@@ -15,7 +46,7 @@
 		<%= label_tag("choice_".concat(choice.id.to_s).to_sym, choice.text) %>
 	 </p>
   <% end %>
-  
+
   <div class="center">
 	 <%= submit_tag("Continue", :class => "submit") %>
   </div>

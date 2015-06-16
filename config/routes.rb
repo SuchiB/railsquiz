@@ -20,7 +20,7 @@ Quizapp::Application.routes.draw do
 
   post "quiz/answer"
 
-  get "quiz/end"
+  get "quiz/result"
   
   post "choices/create"
   

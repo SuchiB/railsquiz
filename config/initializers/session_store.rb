@@ -1,6 +1,7 @@
 # Be sure to restart your server when you modify this file.
+# Changed by 041502996 Dillon to Active Record over Cookie Store
 
-Quizapp::Application.config.session_store :cookie_store, :key => '_quizapp_session'
+Quizapp::Application.config.session_store :active_record_store
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

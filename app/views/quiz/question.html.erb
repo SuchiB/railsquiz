@@ -1,59 +1,38 @@
 <!--
-# TAFE, 29 April, 2015.
+# TAFE, 12 June, 2015.
 # Ruby Source File
 # Activity::  Final Project: Quiz App
 # Author::   041504258 Suruchi Bapat
-
-#<iframe src="http://free.timeanddate.com/clock/i4pde0av/n196/tlau/fn6/fs24/tct/pct/ftb/bo2/th2" frameborder="0" width="207" height="32" allowTransparency="true"></iframe>
-
+# Author::   041502996 Dillon O'Dwyer
 -->
-
-<!--<h2>Start Time <%= Time.zone.now.strftime("%T") %></h2> -->
-
-<!-- Site Ref: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock -->
-<script>
-function startTime() {
-    var today=new Date();
-    var h=today.getHours();
-    var m=today.getMinutes();
-    var s=today.getSeconds();
-    var ampm = h >= 12 ? ' PM' : ' AM';
-    h = h % 12;
-    h = h ? h : 12; // the hour '0' should be '12'
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('time').innerHTML = h+":"+m+":"+s+ampm;
-    var t = setTimeout(function(){startTime()},500);
-}
-
-
-function checkTime(i) {
-    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
-</script>
-
-<body onload="startTime()">
-
 <b><p STYLE="display: inline; border: solid  2px"id="time">  <%= %></p></b>
 <h1>Question <%= @current + 1 %> of <%= @total %></h1>
-<p id="question"><%= @question.text %></p>
+<p id="question"><%= @question.getText %></p>
 
 <%= form_tag({:controller => "quiz", :action => "answer"}) do %>
-  <% @choices.each do |choice| %>
-	 <p class="choice">
-		<%= radio_button_tag(:choice, choice.id) %>
-		<%= label_tag("choice_".concat(choice.id.to_s).to_sym, choice.text) %>
-	 </p>
+  <% if @type == 'TF' %>
+    <%= radio_button_tag(:tf, "true") %>
+    <%= label_tag(:tfTrue, "True") %>
+    <%= radio_button_tag(:tf, "false") %>
+    <%= label_tag(:tfFalse, "False") %>
+  <% elsif @type == "MC" %>
+    <% @question.getAnswers.each do |mcAnswer| %>
+      <%= radio_button_tag(:mc, mcAnswer.getText) %>
+      <%= label_tag(:mcLab, mcAnswer.getText) %>
+    <% end %>
+  <% elsif @type == "MA"  %>
+    <% @question.getAnswers.each do |maAnswer| %>
+      <%= check_box_tag(:ma, maAnswer.getText) %>
+      <%= label_tag(:maLab, maAnswer.getText) %>
+    <% end %>
+  <% elsif @type == "St"  %>
+    <%= text_area_tag(:st, "", size: "50x5") %>
+  <% elsif @type == "Lg"  %>
+    <%= text_area_tag(:lg, "", size: "100x10") %>
+  <% else %>
+    <p>We have encountered an error with this question.</p>
   <% end %>
-
   <div class="center">
 	 <%= submit_tag("Continue", :class => "submit") %>
   </div>
 <% end %>
-
-<% content_for(:title) do %>
-  Question <%= @current + 1 %> of <%= @total %>
-<% end %>
-
-

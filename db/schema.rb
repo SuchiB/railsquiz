@@ -10,22 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150605101248) do
+ActiveRecord::Schema.define(:version => 20150612061450) do
 
-  create_table "choices", :force => true do |t|
-    t.string   "text"
-    t.boolean  "correct"
-    t.integer  "question_id"
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "questions", :force => true do |t|
-    t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "question_type"
-    t.string   "answers"
-  end
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
 end
